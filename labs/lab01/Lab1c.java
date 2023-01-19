@@ -22,7 +22,7 @@ public class Lab1c {
     Scanner in = new Scanner(System.in);
 
     // seed a new Random object and generate an int between 0 and 10
-    Random rand = new Random(System.currentTimeMillis());
+    Random rand = new Random(42);
     int answer = rand.nextInt(11);
 
     // prompt the user for an inital guess and establish a couter for

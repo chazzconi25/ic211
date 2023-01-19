@@ -51,9 +51,9 @@ public class Lab1b {
     // prompt user for name  and two integers
     System.out.print("Enter your name: ");
     String name = in.nextLine();
-    System.out.print("Please input an integer ");
+    System.out.print("Please input an integer: ");
     int n = in.nextInt();
-    System.out.print("Please input a second integer ");
+    System.out.print("Please input a second integer: ");
     int k = in.nextInt();
 
     // print entered ints to console
@@ -67,6 +67,6 @@ public class Lab1b {
     System.out.println("numerator = " + numerator);
     System.out.println("denominator = " + denominator);
     System.out.println("odds = 1 in " + numerator/denominator + " = " + (double)1/(numerator/denominator));
-    System.out.println("Goodbye " + name + ".");
+    System.out.print("Goodbye " + name + ".");
   }
 }
