@@ -1,10 +1,13 @@
-// Charlie Francesconi
-// 251806
-// IC211 Knoll
-public class Lab1a {
+/*
+ * Charlie Francesconi 251806
+ * IC211 Knoll
+ * 
+ * Lab1a prints numbers 0 through 10 and their squares on 11 seperate lines.
+ */
 
+public class Lab1a {
   /*
-   * Prints integers 0 through 9 and their squared values on seprate lines
+   * main Prints integers 0 through 9 and their squared values on seprate lines
    */
   public static void main(String[] args) {
     // initalize empty array and k iterator value
