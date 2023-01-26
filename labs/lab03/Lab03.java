@@ -15,7 +15,7 @@ public class Lab03 {
                 }
             } else if(cmd.equals("box")) {
                 if(box == null) {
-                    System.out.println("Fuck you");
+                    System.out.println("No box created, have a wonderful day!");
                 } else {
                     System.out.println(box);
                 }

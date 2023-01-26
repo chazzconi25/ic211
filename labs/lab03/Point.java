@@ -44,15 +44,23 @@ public class Point {
         return new Point(x,y); 
     }
 
-    public double len(Point p){
-        return this.x - p.x;
-    }
-
-    public double height(Point p){
-        return this.y - p.y;
+    public Point map(Point min, Point max){
+        if(this.x > max.x || this.y > max.y || this.x < min.x
+            || this.y < min.y) {
+            return null;
+        }
+        double width = max.x - min.x;
+        double height = max.y - min.y;
+        double newX =(this.x - min.x)/width;
+        double newY =(this.y - min.y)/height;
+        return new Point(newX, newY);
     }
 
     public String toString() {
         return this.x + " " + this.y;
+    }
+
+    public String print(Point max) {
+        return this.x + " < x < " + max.x + ", " + this.y + " < y < " + max.y;
     }
 }
