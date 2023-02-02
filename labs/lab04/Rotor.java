@@ -1,19 +1,32 @@
 public class Rotor {
-    private static char[] rotor = initRotor();
+    String state;
 
-    private static char[] initRotor() {
-        char [] rotor = new char[27];
-        for(int i = 0; i <rotor.length -1; i++) {
-            rotor[i] = (char)('A' + i);
-        }
-        rotor[26] = '#';
-        return rotor;
+    public Rotor(String state, char top) {
+        this.state = state;
+        int turns = state.indexOf(top);
+        this.rotateClockwise(state.length() - turns);
+    }
+
+    public void rotateClockwise(int turns) {
+        int len = state.length();
+        turns = turns%len;
+        this.state = state.substring(len - turns) + state.substring(0, len - turns);
+    }
+
+    public int rotorPos(char find) {
+        return state.indexOf(find);
+    }
+
+    public String letterAtPos(int index) {
+        return "" + state.charAt(index);
     }
 
     public static void main(String [] args) {
-        for(int i = 0; i < rotor.length; i++) {
-            System.out.println(rotor[i]);
+        Rotor test = new Rotor("#GNUAHOVBIPWCJQXDKRYELSZFMT", '#');
+        System.out.println(test.state);
+        for(int i =0; i < test.state.length(); i++) {
+            test.rotateClockwise(1);
+            System.out.println(test.state);
         }
     }
-    
 }
