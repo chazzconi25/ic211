@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * Instance object that represents a point in a cartesian coordinate
+ * Point represents a point in a cartesian coordinate
  * system
  * @author Charlie Francesconi
  */

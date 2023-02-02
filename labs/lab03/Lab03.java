@@ -1,5 +1,11 @@
 import java.util.*;
 
+/**
+ * Lab03 allows the user to input Cartesian points into the 
+ * terminal to add them to a bounding box. After adding points the
+ * user can map new points, print the box bounds or add more to the
+ * box. When the user is finished they can enter "done" to exit.
+ */
 public class Lab03 {
     public static void main(String [] args) {
         Scanner sc = new Scanner(System.in);
