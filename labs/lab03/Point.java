@@ -1,7 +1,6 @@
 import java.util.*;
 /**
- * Point represents a point in a cartesian coordinate
- * system
+ * Point represents a point in a cartesian coordinate system
  * @author Charlie Francesconi
  */
 public class Point {
