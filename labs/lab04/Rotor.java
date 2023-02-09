@@ -2,6 +2,7 @@
  * Rotor class represents one rotor on an ingma machine. The rotor
  * can be searched for a specific letter and its position or find
  * a letter given a position. The rotor can also be rotated clockwise.
+ * @author Charlie Francesconi
  */
 public class Rotor {
 

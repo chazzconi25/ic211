@@ -2,6 +2,7 @@
  * Enigma class represents a full enigma machiene. The user can select
  * from 5 default rotors and choose starting positons on 3 of them
  * to encrypt or decrypt messages.
+ * @author Charlie Francesconi
  */
 public class Enigma {
 
