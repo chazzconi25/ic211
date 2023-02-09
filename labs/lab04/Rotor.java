@@ -17,16 +17,22 @@ public class Rotor {
         return state.indexOf(find);
     }
 
-    public String letterAtPos(int index) {
-        return "" + state.charAt(index);
+    public char letterAtPos(int index) {
+        return state.charAt(index);
     }
 
     public static void main(String [] args) {
         Rotor test = new Rotor("#GNUAHOVBIPWCJQXDKRYELSZFMT", '#');
         System.out.println(test.state);
-        for(int i =0; i < test.state.length(); i++) {
-            test.rotateClockwise(1);
-            System.out.println(test.state);
-        }
+        test.rotateClockwise(1);
+        System.out.println(test.state);
+        test.rotateClockwise(26);
+        System.out.println(test.state);
+        test.rotateClockwise(26);
+        System.out.println(test.state);
+        test.rotateClockwise(26);
+        System.out.println(test.state);
+
+        
     }
 }

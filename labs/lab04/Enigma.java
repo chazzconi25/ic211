@@ -4,7 +4,6 @@ public class Enigma {
         "#BDFHJLNPRTVXZACEGIKMOQSUWY", "#NWDKHGXZVRIFJBLMAOPSCYUTQE",
         "#TGOWHLIFMCSZYRVXQABUPEJKND"
     };
-    final String NORMAL = "#ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     Rotor outer;
     Rotor mid;
@@ -16,19 +15,49 @@ public class Enigma {
         outer = new Rotor(DEFAULT_ROTORS[id3-1], starts.charAt(2));
     }
 
+
     public String encrypt(String message) {
+        String encrypted = "";
+        for(int i = 0; i < message.length(); i++) {
+            encrypted += encryptChar(message.charAt(i));
+            inner.rotateClockwise(1);
+            if((i + 1) % 27 == 0) {
+                mid.rotateClockwise(1);
+            }
+            if((i + 1) % (27*27) == 0) {
+                outer.rotateClockwise(1);
+            }
 
-        return ;
+        }
+        return encrypted;
+    }
+    private char encryptChar(char a) {
+        char one = outer.letterAtPos(inner.rotorPos(a));
+        char two = outer.letterAtPos(mid.rotorPos(one));
+        return two;
+    }
+    private char decryptChar(char a) {
+        char one = mid.letterAtPos(outer.rotorPos(a));
+        char two = inner.letterAtPos(outer.rotorPos(one));
+        return two;
     }
 
-    public String encryptChar(String a) {
-        String one = inner.letterAtPos(NORMAL.indexOf(a));
-        String two = inner.letterAtPos(NORMAL.indexOf(one));
-        String three = inner.letterAtPos(NORMAL.indexOf(two));
-        return three;
+    public String decrypt(String message) {
+        String decrypted = "";
+        for(int i = 0; i < message.length(); i++) {
+            decrypted += decryptChar(message.charAt(i));
+            inner.rotateClockwise(26);
+            if((i + 1) % 27 == 0) {
+                mid.rotateClockwise(26);
+            }
+            if((i + 1) % (27*27) == 0) {
+                outer.rotateClockwise(26);
+            }
+        }
+        return decrypted;
     }
 
-    public static void main() {
+    public static void main(String [] args) {
         Enigma test = new Enigma(1,2,3,"###");
         System.out.println(test.encrypt("AAA"));
     }

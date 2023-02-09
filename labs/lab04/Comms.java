@@ -32,6 +32,7 @@ public class Comms {
     int id2 = Integer.parseInt(args[1]);
     int id3 = Integer.parseInt(args[2]);
     
+    
     // Get the message from the user, and call the appropriate method
     Scanner scan = new Scanner(System.in);
     String message = scan.next();
