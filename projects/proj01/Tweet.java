@@ -12,7 +12,7 @@ public class Tweet {
     }
 
     public String toString() {
-        return text + "  [" + user + "]  " + date; 
+        return text + "\t[" + user + "]\t" + date; 
     }
 
     public static Tweet read(Scanner in) {
