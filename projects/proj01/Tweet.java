@@ -30,7 +30,7 @@ public class Tweet {
      * @return String representation of a Tweet
      */
     public String toString() {
-        return text + "\t[" + user + "]\t" + date; 
+        return text + "  [" + user + "]  " + date; 
     }
 
     /**
