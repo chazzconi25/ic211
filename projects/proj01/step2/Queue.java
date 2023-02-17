@@ -53,6 +53,9 @@ public class Queue {
         return head == null;
     }
 
+    /**
+     * prints all of the tweets in this Queue on individual lines
+     */
     public void printAll() {
         Node temp = head;
         while(temp != null) {
@@ -61,6 +64,10 @@ public class Queue {
         }
     }
 
+    /**
+     * gives the length of this Queue
+     * @return number of nodes in this Queue
+     */
     public int length() {
         int len = 0;
         Node temp = head;

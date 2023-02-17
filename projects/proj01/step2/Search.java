@@ -1,6 +1,11 @@
 import java.util.*;
-
 import java.io.*;
+
+/**
+ * This program allows the user to read in twitter data from a file
+ * and print all of the information in the file to console.
+ * @author Charlie Francesconi
+ */
 public class Search {
     public static Queue readFile(String path) throws FileNotFoundException {
         Queue tweets = new Queue();
