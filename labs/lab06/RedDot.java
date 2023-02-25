@@ -7,14 +7,17 @@ public class RedDot extends MovingDot {
         super(r, c);
     }
 
-    public void step(){
-        int next = r.nextInt(3);
-        if(next == 0) {
-            super.step();
-        } else if (next == 1) {
-            dir = 
+    public void step() {
+        int next = r.nextInt(2);
+        if (next == 0) {
+            left();
         } else {
             right();
         }
+        super.step();
+    }
+
+    public String toString() {
+        return super.toString() + " r";
     }
 }

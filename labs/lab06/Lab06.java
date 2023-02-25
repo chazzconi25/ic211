@@ -14,6 +14,7 @@ public class Lab06{
       if( count % N == 0 ) {
         L.add(new RedDot(45,50));   // add a RedDot to the list
         L.add(new BlueDot(55,50));  // add a BlueDot to the list
+        L.add(new GreenDot(65,50));  // add a BlueDot to the list
       }
 
       // for each MovingDot in our MovingDotList

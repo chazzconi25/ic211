@@ -1,15 +1,15 @@
 import java.util.Random;
 
-public class BlueDot extends MovingDot {
+public class GreenDot extends MovingDot {
     private Random r = new Random();
 
-    public BlueDot(int r, int c) {
+    public GreenDot(int r, int c) {
         super(r, c);
     }
 
     public void step(){
         steps++;
-        if(steps%10 == 0) {
+        if(steps%4 == 0) {
             int next = r.nextInt(2);
             if(next == 1) {
                 left();
@@ -17,10 +17,11 @@ public class BlueDot extends MovingDot {
                 right();
             }
         }
-        super.step();
+        super.diagonal();
     }
     
     public String toString() {
         return super.toString() + " b";
     }
+
 }
