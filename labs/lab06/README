@@ -1,0 +1,10 @@
+Making new types of dots is made easy via my MovingDot design. The user has
+the ability to use the cardinal directions and basic instructions for left,
+right, and diagonal to allow dots to move in any direction in any way.
+Using simple loops these methods can be paired with random objects and
+modulous calculations to increase or decrase the number of steps a dot takes
+before deciding on a new path randomly or not randomly.
+
+The polymorphic methods I created used are named left(), right(), and
+diagonal(). These methods are all used in all three dots but can be
+specifically found in Green Dot on lines 33, 34, and 37.
