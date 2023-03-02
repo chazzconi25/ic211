@@ -1,18 +1,27 @@
-import java.util.Base64.Decoder;
-
-import javax.swing.plaf.synth.SynthStyle;
-
+/**
+ * General class for MovingDot to be extended by other, more specific
+ * dots that have different moving instructions per step or multi
+ * steps.
+ * @author Charlie Francesconi
+ */
 public class MovingDot extends Dot {
+    // Tracks how many steps this dot has taken.
     protected int steps = 0;
+    // Tracks the current direction of this dot
     private int dir = 0; // N = 0; E = 1, S = 2, W = 3
 
-    // a constructor that takes row and column position as integers
+    /**
+     * Constructor for a MovingDot
+     * @param r row for this MovingDot to initally spawn on
+     * @param c column for this MovingDot to initally spawn on
+     */
     public MovingDot(int r, int c){
         super(r, c);
     }
 
-    // a step method that moves the Dot in the direction that it is facing 
-    // for the first step, choose an arbitrary direction
+    /**
+     * Updates the positon of this MovingDot in a straight direction
+     */
     public void step(){
         if(dir == 0) {
             incRow();
@@ -25,6 +34,9 @@ public class MovingDot extends Dot {
         }
     }
 
+    /**
+     * Updates the position of this MovingDot in a diagonal direction
+     */
     public void diagonal() {
         if(dir == 0) {
             incRow();
@@ -41,38 +53,42 @@ public class MovingDot extends Dot {
         }
     }
 
+    /**
+     * Updates the direction of a MovingDot to left of its current
+     * direction
+     */
     public void left() {
         if(dir == 0) {
-            //decCol();
             dir = 3;
         } else if(dir == 1) {
-            //incRow();
             dir = 0;
         } else if(dir == 2) {
-            //incCol();
             dir = 1;
         } else {
-            //decRow();
             dir = 2;
         }
     }
 
+    /**
+     * Updates the direction of a MovingDot to right of its current
+     * direction
+     */
     public void right() {
         if(dir == 0) {
-            //incCol();
             dir = 1;
         } else if(dir == 1) {
-            //decRow();
             dir = 2;
         } else if(dir == 2) {
-            //decCol();
             dir = 3;
         } else {
-            //incRow();
             dir = 0;
         }
     }
 
+    /**
+     * Prints this MovingDot's positon
+     * @return string contaning the row, col, and color of the dot
+     */
     public String toString() {
         return super.toString();
     }
