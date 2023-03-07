@@ -25,10 +25,29 @@ public class Lab07 {
             e.printStackTrace();
             System.exit(1);
         }
+        Event[] allEvents = new Event[lines];
+        Scanner sc = new Scanner(new FileReader(filename));
+        for(int i = 0; i < lines; i++) {
+            String [] line = sc.nextLine().split(" ");
+            if(line[2].equals("months")) {
+                if(line[3].equals("for")) {
+                    allEvents[i] = new EndMonthEvent(Integer.parseInt(line), line[6], )
+                } else {
+
+                }
+            } else {
+                if(line[5].equals("prob")) {
+
+                } else {
+
+                }
+            }
+
+        }
         int numDays = Integer.parseInt(args[1]);
         // set "today" to 1/1/2017
         MyDate today = new MyDate(2017,1,1);
-        Event[] allEvents = new Event[lines];
+         allEvents = Event.eventsFromfile(sc);
         for( int i=0; i < numDays; i++ ) {
             // ask each event whether they have something going on "today"
             Queue todaysBills =  new Queue();

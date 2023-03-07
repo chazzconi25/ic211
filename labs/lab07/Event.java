@@ -1,20 +1,16 @@
 import java.util.*;
 
 public class Event {
-    private Date startDate;
-    private String name;
     private int displacement;
-    public Event(int displacement, Date startDate, String name) {
+    private MyDate startDate;
+    private String name;
+
+    public Event(int displacement, String startDate, String name) {
         this.displacement = displacement;
-        this.startDate = startDate;
+        String date [] = startDate.split("/");
+        this.startDate = makeDate(Integer.parseInt(date[2]),
+                        Integer.parseInt(date[0]), Integer.parseInt(date[1]));
         this.name = name;
-    }
-
-    public Event[] eventsFromfile(Scanner sc){
-        sc.next();
-        int disp = sc.nextInt();
-
-        return 
     }
 
     public boolean happening(Date today) {
