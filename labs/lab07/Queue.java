@@ -30,9 +30,9 @@ public class Queue {
     Node head;
     Node tail;
 
-    /**null
+    /**
     * adds Event t to the back of this queue
-    * @args t Event to be added to back of queue
+    * @param t Event to be added to back of queue
     */
     public void enqueue(Event t) {
         Node temp = new Node(t, null);
@@ -62,7 +62,7 @@ public class Queue {
             System.out.print(temp.data + ", ");
             temp = temp.next;
         }
-
+        System.out.println(tail.data);
     }
 
     /**
