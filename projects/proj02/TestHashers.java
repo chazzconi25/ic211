@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TestEncryptors {
+public class TestHashers {
   public static void main(String[] args) throws Throwable {
     // Create ArrayList of all supported encryptors
     ArrayList<Encryptor> E = new ArrayList<Encryptor>();
@@ -13,8 +13,6 @@ public class TestEncryptors {
     String encalg = System.console().readLine();
     System.out.print("password : ");
     char[] password = System.console().readPassword();
-    System.out.print("message  : ");
-    String plaintext = System.console().readLine();
 
     // Find index of encryptor (throw exception if not found)
     int i = -1;
@@ -28,8 +26,7 @@ public class TestEncryptors {
     E.get(i).init(password);
     String ciphertext = E.get(i).encrypt(plaintext);
     String hopefully = E.get(i).decrypt(ciphertext);
-    System.out.println("plain : " + plaintext);
-    System.out.println("cipher: " + ciphertext);
-    System.out.println("decryp: " + hopefully);
+    System.out.println("password read : " + new String(password));
+    System.out.println("hash computed: " + ciphertext);
   }
 }
