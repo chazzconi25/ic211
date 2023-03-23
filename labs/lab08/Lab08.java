@@ -1,8 +1,21 @@
 import java.io.*;
 import java.util.*;
-
+/**
+ * This program allows the user to add strings to a queue and display them.
+ * The queue can be cleared up to a certain word in the queue. Quit the program
+ * with the command 'quit'.
+ * @author Francsoni
+ */
 public class Lab08 {
 
+  /**
+   * Allows the user to use queue functionality, adding strings, displaying
+   * strings, and clearing to a string. Can submit a list of strings and
+   * commands from a file or stdin. All errors are handeld and viewable
+   * with tag -v for verbose mode.
+   * @param args -v for verbose mode and a file name if not using stdin
+   * @throws Throwable throws errors if commands are processed improperly
+   */
   public static void main(String[] args) throws Throwable {
     Scanner sc = new Scanner(System.in);
     String fname = "";
@@ -25,7 +38,8 @@ public class Lab08 {
           sc = new Scanner(new FileReader(fname));
         }
       } catch(IOException e) {
-        System.out.println("File \'" + fname + "\' could not be opened; switching input to standard in.");
+        System.out.println("File \'" + fname +
+                    "\' could not be opened; switching input to standard in.");
         usingStdin = true;
       }
     }
