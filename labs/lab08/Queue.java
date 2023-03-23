@@ -10,7 +10,7 @@ public class Queue {
     }
   }
 
-  public void enqueue(String s) throws Throwable {
+  public void enqueue(String s) {
     if( head == null ) {
       head = tail = new Node(s, null);
     } else {
@@ -19,41 +19,42 @@ public class Queue {
     }
   }
 
-  public String dequeue() throws Throwable {
+  public String dequeue() {
+    Node t = head;
     try {
-      Node t = head;
       head = head.next;
-      if( head == null )
-        tail = null;
-      return t.data;
     } catch (Exception e) {
       throw new QueueException("dequeue empty queue");
     }
+    if( head == null )
+      tail = null;
+
+    return t.data;
   }
 
-  public boolean empty() throws Throwable {
+  public boolean empty() {
     return head == null;
   }
 
-  public String[] toArray() throws Throwable {
+  public String[] toArray() {
     // Assumes at least one node exists.
     // (a dumb way to do it, but don't change this).
+    Node t = head;
+    int n = 1;
     try {
-      Node t = head;
-      int n = 1;
       while( t.next != null ) {
         t = t.next;
         n++;
       }
-        
-      // Create array and return it.
-      String[] arr = new String[n];
-      int i = 0;
-      for( t = head; t != null; t = t.next )
-        arr[i++] = t.data;
-      return arr;
     } catch (Exception e) {
       throw new QueueException("toArray past end of queue");
     }
+
+    // Create array and return it.
+    String[] arr = new String[n];
+    int i = 0;
+    for( t = head; t != null; t = t.next )
+      arr[i++] = t.data;
+    return arr;
   }
 }

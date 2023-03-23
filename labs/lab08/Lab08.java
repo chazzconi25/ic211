@@ -7,44 +7,69 @@ public class Lab08 {
     Scanner sc = new Scanner(System.in);
     String fname = "";
     boolean verbose = false;
-    if(args.length >= 1){
+    boolean usingStdin = true;
+    if(args.length != 0){
       verbose = args[0].equals("-v");
-      if(verbose && args.length > 1) {
+      if(verbose) {
+        usingStdin = args.length - 1 == 0;
+      } else {
+        usingStdin = args.length == 0;
+      }
+      if(args.length > 1) {
         fname = args[1];
       } else {
         fname = args[0];
       }
       try {
-        sc = new Scanner(new FileReader(fname));
+        if(!usingStdin) {
+          sc = new Scanner(new FileReader(fname));
+        }
       } catch(IOException e) {
         System.out.println("File \'" + fname + "\' could not be opened; switching input to standard in.");
+        usingStdin = true;
       }
     }
     
     ModQueue Q  = new ModQueue();
 
     do {
-      if(verbose && args.length == 1 || args.length == 0) {
+      if(usingStdin) {
         System.out.print("> ");
       }
-      String cmd = sc.next();
-
-      if( cmd.equals("quit") ) {
+      String cmd = "";
+      String next = "";
+      try {
+        cmd = sc.next();
+      } catch (NoSuchElementException e) {
         break;
-      } else if( cmd.equals("clearto") ) {
-        String next = sc.next();
+      }
+      if(cmd.equals("quit") ) {
+        break;
+      } else if(cmd.equals("clearto") ) {
         try {
+          next = sc.next();
           Q.dequeue(next);
-        } catch (Exception e) {
+        } catch (NoSuchElementException e) {
+          System.out.println("Unexpected end of input.");
+        } catch (QueueException e) {
           if(verbose) {
-            System.out.println("String " + next + " not found!");
+            System.out.println("String \'" + next + "\' not found!");
           }
         }
-        
       } else if( cmd.equals("add") )   {
-        Q.enqueue(sc.next());
-      } else if( cmd.equals("dump") )   {
-        System.out.println(Q.dump());
+        try {
+          Q.enqueue(sc.next());
+        } catch (Exception e) {
+          System.out.println("Unexpected end of input.");
+        }
+      } else if(cmd.equals("dump") )   {
+        try {
+          System.out.println(Q.dump());
+        } catch (Exception e) {}
+      } else {
+        if(verbose) {
+          System.out.println("Unknown command \'" + cmd + "\'.");
+        }
       }
     } while( true );
   }
