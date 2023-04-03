@@ -2,20 +2,20 @@ public class Vigenere implements Encryptor {
   private char [] key;
   public String getAlgName() { return "vigenere"; }
 
-  public void init(char[] key) throws Throwable {
+  public void init(char[] key) throws InvalidCharException {
     for(int i = 0; i < key.length; i++) {
       if(key[i] < 42 || key[i] > 122) {
-        throw new Throwable("error " + key[i] + " not allowed in key");
+        throw new InvalidCharException("error " + key[i] + " not allowed in key",key[i]);
       }
     }
     this.key = key;
   }
 
-  public String encrypt(String vigenere ) throws Throwable {
+  public String encrypt(String vigenere ) throws InvalidCharException {
     char[] encrypted = vigenere.toCharArray();
     for(int i = 0; i < encrypted.length; i++) {
       if(encrypted[i] < 42 || encrypted[i] > 122) {
-        throw new Throwable("error " + key[i] + " not allowed in plaintext");
+        throw new InvalidCharException("error " + key[i] + " not allowed in plaintext",encrypted[i]);
       }
       char pc = encrypted[i];
       char sc = key[i % key.length];

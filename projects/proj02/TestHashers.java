@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class TestHashers {
-  public static void main(String[] args) throws Throwable {
-    // Create ArrayList of all supported encryptors
-    ArrayList<Encryptor> E = new ArrayList<Encryptor>();
-    E.add(new Clear());
-    E.add(new Caesar());
-    E.add(new Vigenere());
+  public static void main(String[] args) throws InvalidCharException {
+    // Create ArrayList of all supported hashers
+    ArrayList<Hasher> H = new ArrayList<Hasher>();
+    H.add(new ClearHash());
+    H.add(new ShiftCaesar());
+    H.add(new ShiftVigenere());
 
     // Get alg,psw,msg from user
     System.out.print("algorithm: ");
@@ -14,19 +14,18 @@ public class TestHashers {
     System.out.print("password : ");
     char[] password = System.console().readPassword();
 
-    // Find index of encryptor (throw exception if not found)
+    // Find index of hasher (throw exception if not found)
     int i = -1;
     try {
-      while( !E.get(++i).getAlgName().equals(encalg) ) ;
+      while(!H.get(++i).getHashName().equals(encalg)) ;
     } catch(IndexOutOfBoundsException e) {
-      throw new NoSuchElementException("Unknown algorithm '" + encalg +"'.");
+      throw new NoSuchElementException("Unknown hash '" + encalg +"'.");
     }
 
     // Encrypt, decrypt print sumamry of results
-    E.get(i).init(password);
-    String ciphertext = E.get(i).encrypt(plaintext);
-    String hopefully = E.get(i).decrypt(ciphertext);
+    H.get(i).init(password);
+    String hash = H.get(i).hash();
     System.out.println("password read : " + new String(password));
-    System.out.println("hash computed: " + ciphertext);
+    System.out.println("hash computed : " + hash);
   }
 }

@@ -3,22 +3,22 @@ public class Caesar implements Encryptor {
   public String getAlgName() {
     return "caesar";
   }
-  public void init(char[] key) throws Throwable {
+  public void init(char[] key) throws InvalidCharException {
     int shift = 0;
     for(int i = 0; i < key.length; i++) {
       if(key[i] < 42 || key[i] > 122) {
-        throw new Throwable("error " + key[i] + " not allowed in key");
+        throw new InvalidCharException("error " + key[i] + " not allowed in key",key[i]);
       }
       shift += key[i] - 42;
     }
     sc = (char)(42 +((18 + shift) % 81));
   }
-  public String encrypt(String caesar) throws Throwable {
+  public String encrypt(String caesar) throws InvalidCharException {
     char[] encrypted = caesar.toCharArray();
     int k = sc - 42;
     for(int i = 0; i < encrypted.length; i++) {
       if(encrypted[i] < 42 || encrypted[i] > 122) {
-        throw new Throwable("error " + encrypted[i] + " not allowed in plaintext");
+        throw new InvalidCharException("error " + encrypted[i] + " not allowed in plaintext",encrypted[i]);
       }
       int p = encrypted[i] - 42;
       int c = (p + k) % 81;

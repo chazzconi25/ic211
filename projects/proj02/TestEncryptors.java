@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class TestEncryptors {
-  public static void main(String[] args) throws Throwable {
+  public static void main(String[] args) throws InvalidCharException {
     // Create ArrayList of all supported encryptors
     ArrayList<Encryptor> E = new ArrayList<Encryptor>();
     E.add(new Clear());
