@@ -1,12 +1,21 @@
 import java.util.*;
-
+/**
+ * Calss that tests all of the implemented hashers with user input
+ * @author Frcesconi, Charles
+ */
 public class TestHashers {
+  /**
+    * Tests all implemented hashers in a defined ArrayList. User can fill
+    * field entries to adjust tests in prompts
+    * @param args unused
+    * @throws InvalidCharException If passwords outside ASCII bounds are given
+    */
   public static void main(String[] args) throws InvalidCharException {
     // Create ArrayList of all supported hashers
     ArrayList<Hasher> H = new ArrayList<Hasher>();
     H.add(new ClearHash());
-    H.add(new ShiftCaesar());
-    H.add(new ShiftVigenere());
+    H.add(new Shift(new Caesar()));
+    H.add(new Shift(new Vigenere()));
 
     // Get alg,psw,msg from user
     System.out.print("algorithm: ");

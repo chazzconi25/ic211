@@ -1,32 +1,37 @@
-public class User {
-    private String name;
-    private String hashName;
-    private Hasher hashType;
-    private String hash;
-
-    public User(String name, String hashName, Hasher hashType, String hash) {
-        this.name = name;
-        this.hashType = hashType;
-        this.hash = hash;
-        this.hashName = hashName;
+/**
+ * Represents a user and their hashed password stored in a vault file
+ * @author Frcesconi, Charles
+ */
+public class User extends VaultItem {
+    private Hasher H;
+    /**
+     * Construct a user
+     * @param name users name
+     * @param hash users hashed password
+     * @param H hasher user uses
+     */
+    public User(String name, String hash, Hasher H) {
+        super(name, hash);
+        this.H = H;
     }
 
+    /**
+     * Checks if a given password is right for this users
+     * @param password password to check
+     * @return true if password mataches
+     * @throws Exception unsupported hash if user has a fake hash
+     * or passowrd has invalid chars
+     */
     public boolean correctPass(char [] password) throws Exception {
-        String test = "";
-        if(hashType == null) {
-            throw new UnsupportedHashException("Error! Hash algorithm \'" + hashName + "\' not supported.");
+        if(H instanceof UnknownHash) {
+            throw new UnsupportedHashException("Error! Hash algorithm \'"
+                                                + H.getHashName() 
+                                                + "\' not supported.");
         }
-        hashType.init(password);
-        test = hashType.hash();
+        H.init(password);
+        String test = H.hash();
         return test.equals(hash);
     }
 
-    public String getUname() {
-        return name;
-    }
-
-    public String getHashName() {
-        return hashName;
-    }
-
 }
+
