@@ -1,6 +1,15 @@
 import java.util.*;
-
+/**
+ * Class for testing all of the implmented encryptors with user input
+ * @author Franconiconi, Charles
+ */
 public class TestEncryptors {
+  /**
+    * Tests all implemented encryptors in a defined ArrayList. User can fill
+    * field entries to adjust tests
+    * @param args unused
+    * @throws InvalidCharException If passwords outside ASCII bounds are given
+    */
   public static void main(String[] args) throws InvalidCharException {
     // Create ArrayList of all supported encryptors
     ArrayList<Encryptor> E = new ArrayList<Encryptor>();
