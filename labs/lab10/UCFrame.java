@@ -10,6 +10,19 @@ public class UCFrame extends JFrame {
   private JButton calc;
   private final String[] rates = generateRates();
 
+  public void recalculate() {
+    try {
+      double la = Double.parseDouble(loanAmt.getText());
+      double mp = Double.parseDouble(mPayment.getText());
+      double r = Double.parseDouble(rate.getSelectedItem().toString());
+
+      cost.setText("" + Calc.cost(la, mp, r));
+      mToPay.setText("" + Calc.cost(la, mp, r));
+    } catch (Exception e)    {
+      cost.setText("error!");
+      mToPay.setText("error!");
+    }
+  }
   private String[] generateRates() {
     String [] rates = new String[17];
     double baseRate = 3.5;

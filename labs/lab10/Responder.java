@@ -7,6 +7,7 @@ public class Responder implements ActionListener {
   }
 
   public void actionPerformed(ActionEvent e) {
+    f.recalculate();
     f.resetFocus();
   }
 }
