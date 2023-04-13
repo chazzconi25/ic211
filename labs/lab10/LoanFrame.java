@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class UCFrame extends JFrame {
+/**
+ * 
+ */
+public class LoanFrame extends JFrame {
   private JTextField loanAmt;
   private JTextField mPayment;
   private JTextField mToPay;
@@ -10,19 +13,30 @@ public class UCFrame extends JFrame {
   private JButton calc;
   private final String[] rates = generateRates();
 
+  /**
+   * Creates a new Calc object and calcuates the loan based on given values
+   * in the fields. Catches UnpayableLoanException if loan is unpayable with
+   * given values. Updates text boxes on finish.
+   */
   public void recalculate() {
     try {
       double la = Double.parseDouble(loanAmt.getText());
       double mp = Double.parseDouble(mPayment.getText());
       double r = Double.parseDouble(rate.getSelectedItem().toString());
-
-      cost.setText("" + Calc.cost(la, mp, r));
-      mToPay.setText("" + Calc.cost(la, mp, r));
+      Calc c = new Calc();
+      c.calcLoan(la, r, mp);
+      cost.setText("" + c.getMonths());
+      mToPay.setText("" + c.getCost());
     } catch (Exception e)    {
       cost.setText("error!");
       mToPay.setText("error!");
     }
   }
+  
+  /**
+   * helper method to generate an array of rates to choose from
+   * @return array of rates to choose from
+   */
   private String[] generateRates() {
     String [] rates = new String[17];
     double baseRate = 3.5;
@@ -32,15 +46,19 @@ public class UCFrame extends JFrame {
     return rates;
   }
 
-  // Sets focus to the loanAmt text field
+  /*
+   * Sets focus to the loanAmt text field after user submits a loan for
+   * calculation
+   */
   public void resetFocus() {
     loanAmt.requestFocus();
   }
 
-  
-
-  // consructor
-  public UCFrame() {
+  /*
+   * Creates a new GUI that displays fields for a loan calcuation. On clicking
+   * the calculate button the GUI displays the cost and length of the loan.
+   */
+  public LoanFrame() {
     // create components
     JPanel top = new JPanel(new FlowLayout());
     JPanel cent = new JPanel(new FlowLayout());
