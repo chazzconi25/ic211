@@ -25,8 +25,8 @@ public class LoanFrame extends JFrame {
       double r = Double.parseDouble(rate.getSelectedItem().toString());
       Calc c = new Calc();
       c.calcLoan(la, r, mp);
-      cost.setText("" + c.getMonths());
-      mToPay.setText("" + c.getCost());
+      cost.setText("" + c.getCost()); // accidentally pyut c.getMonths() here
+      mToPay.setText("" + c.getMonths());
     } catch (Exception e)    {
       cost.setText("error!");
       mToPay.setText("error!");
