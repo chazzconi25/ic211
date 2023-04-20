@@ -1,6 +1,4 @@
-import javax.management.timer.TimerMBean;
 import javax.swing.*;
-import java.awt.*;
 
 public class TimerThread extends Thread {
     private JLabel label;

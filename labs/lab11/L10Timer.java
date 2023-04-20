@@ -1,15 +1,11 @@
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
 import java.awt.*;
-import java.awt.event.*;
 
 public class L10Timer {
   public static void main(String[] args) {
     JLabel label = new JLabel(" DONE ");
     label.setForeground(Color.RED);
     label.setPreferredSize(new Dimension(60,15));
-    //label.setBorder(new EmptyBorder(0, 0, 0, 50));
 
     JTextField tf = new JTextField("10", 10);
 

@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 public class CChangeThread extends Thread {
     private JLabel label;

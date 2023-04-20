@@ -12,16 +12,20 @@ public class TimerStart implements ActionListener {
 
   public void actionPerformed(ActionEvent e) {
     int count = 0;
-    
-      try {
-        if(c == null || !c.isAlive()) {
-          count =  Integer.parseInt(tf.getText());
-          TimerThread nthread = new TimerThread(label, count);
-          c = nthread;
-          c.start();
+    try {
+      if(c == null || !c.isAlive()) {
+        count =  Integer.parseInt(tf.getText());
+        if(count < 0) {
+          throw new NegTimerException("ERROR");
         }
-      } catch (NumberFormatException f) {
-        label.setText("ERROR");
+        TimerThread nthread = new TimerThread(label, count);
+        c = nthread;
+        c.start();
       }
+    } catch (NegTimerException f){
+      label.setText("ERROR");
+    } catch (NumberFormatException f) {
+      label.setText("ERROR");
+    }
   }
 }
