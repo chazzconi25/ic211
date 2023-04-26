@@ -23,6 +23,6 @@ public abstract class Sprite {
         g.drawImage(texture, x, y, null);
     }
 
-    public abstract void step();
+    public abstract void step(int tankWidth, int tankHeight);
 
 }
