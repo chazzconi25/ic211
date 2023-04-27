@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * GIVEN
+ */
 public class Toggler implements ActionListener {
   private JLabel label;
   public Toggler(JLabel label) {

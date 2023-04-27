@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-
+/**
+ * GIVEN
+ */
 public class L10a {
   public static void main(String[] args) {
     if( args.length == 0 ) {

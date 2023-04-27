@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.event.*;
-
+/**
+ * GIVEN
+ */
 public class Mystery implements ActionListener {
   private JLabel label;
   private CChangeThread c;
