@@ -5,7 +5,7 @@ public class SmallFish extends Sprite {
         y = r.nextInt(a.getHeight());
         goalx = r.nextInt(a.getWidth());
         goaly = r.nextInt(a.getHeight());
-        speed = 20;
+        speed = 2;
     }
 
     public void step() {
