@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.geom.*;
 import javax.swing.*;
 
 import javax.imageio.*;
