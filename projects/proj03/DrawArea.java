@@ -23,7 +23,14 @@ public class DrawArea extends JComponent implements Runnable{
         height = background.getHeight();
         setPreferredSize(new Dimension(width, height));
         this.sprites = sprites;
-        sprites.add(new Plankton("plankton.png", width, height));
+    }
+
+    public void addPlankton(ArrayList<Sprite> sprites) {
+        sprites.add(new Plankton(this, "plankton.png"));
+    }
+
+    public void addSmallFish(ArrayList<Sprite> sprites) {
+        sprites.add(new SmallFish(this, "small.png"));
     }
 
     // methods
@@ -47,7 +54,7 @@ public class DrawArea extends JComponent implements Runnable{
 
     public void step() {
         for(Sprite i: sprites) {
-            i.step(width, height);
+            i.step();
         } 
     }
 

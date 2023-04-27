@@ -1,18 +1,15 @@
-import java.util.*;
-
 public class Plankton extends Sprite {
-    private Random r = new Random();
-    private int maxHeight;
-    public Plankton(String img, int tankWidth, int tankHeight) {
-        super(img, 100, 0, 0);
-        x = r.nextInt(tankWidth); 
-        maxHeight = r.nextInt(tankHeight); 
+    public Plankton(DrawArea a, String img) {
+        super(a, img, 100, 0, 0);
+        x =  r.nextInt(a.getWidth());
+        goaly = r.nextInt(a.getHeight());   
     }
     
     public void step() {
-        if(y < maxHeight) {
+        if(y < goaly) {
             y++;
         }
     }
+    public void setGoal() {}
     
 }

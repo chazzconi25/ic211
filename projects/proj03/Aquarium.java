@@ -15,6 +15,8 @@ public class Aquarium {
         options.add(b, BorderLayout.EAST);
         f.add(a);
         Thread thread = new Thread(a);
+        a.addPlankton(sprites);
+        a.addSmallFish(sprites);
         thread.start();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.pack();
