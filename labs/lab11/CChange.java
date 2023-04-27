@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * GIVEN
+ */
 public class CChange {
   public static void changeColor(JLabel label) {
     System.out.println("Thread ID: " + Thread.currentThread().getId());
