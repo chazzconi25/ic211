@@ -23,6 +23,7 @@ public abstract class Sprite {
     }
 
     public void paint(Graphics2D g) {
+        g.rotate(15* (Math.PI / 180), x + (texture.getWidth()/2), y + (texture.getHeight()/2));
         g.drawImage(texture, x, y, null);
     }
 

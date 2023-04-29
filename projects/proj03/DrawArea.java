@@ -62,7 +62,7 @@ public class DrawArea extends JComponent implements Runnable{
     public void run() {
         while( true ) {
             try {
-              Thread.sleep(20);
+              Thread.sleep(100);
             } catch (Exception e) {}
             step();
       
